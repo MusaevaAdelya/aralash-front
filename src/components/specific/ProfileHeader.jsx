@@ -2,7 +2,7 @@ import React from 'react'
 
 function ProfileHeader({name, balance, avatar="/images/default-avatar.jpg"}) {
   return (
-    <div className='shadow-xl h-[28rem] rounded-lg overflow-hidden'>
+    <div className='shadow-[0px_7px_29px_0px_rgba(100,100,111,0.2)] h-[28rem] rounded-lg overflow-hidden'>
         <div className=' h-1/2 profile-gradient'></div>
         <div className='flex flex-col items-center justify-center '>
             
