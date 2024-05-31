@@ -2,6 +2,7 @@ import CodeSnippet from "../components/specific/CodeSnippet";
 import HeroSection from "../components/specific/HeroSection";
 import HowItWorksSection from "../components/specific/HowItWorksSection";
 import SetOfProducts from "../components/specific/SetOfProducts";
+import VideoSection from "../components/specific/VideoSection";
 
 function HomePage() {
   return (
@@ -10,6 +11,7 @@ function HomePage() {
       <SetOfProducts />
       <CodeSnippet/>
       <HowItWorksSection/>
+      <VideoSection/>
     </main>
   );
 }
