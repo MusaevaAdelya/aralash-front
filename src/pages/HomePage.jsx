@@ -1,5 +1,6 @@
 import CodeSnippet from "../components/specific/CodeSnippet";
 import HeroSection from "../components/specific/HeroSection";
+import HowItWorksSection from "../components/specific/HowItWorksSection";
 import SetOfProducts from "../components/specific/SetOfProducts";
 
 function HomePage() {
@@ -8,6 +9,7 @@ function HomePage() {
       <HeroSection />
       <SetOfProducts />
       <CodeSnippet/>
+      <HowItWorksSection/>
     </main>
   );
 }
