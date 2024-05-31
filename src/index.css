@@ -9,3 +9,7 @@
     box-sizing: border-box;
     font-family: "Open Sans", sans-serif;
 }
+
+.profile-gradient{
+    background:linear-gradient(109.6deg, rgb(245, 95, 152) 11.2%, rgb(254, 148, 136) 100.2%);
+}

@@ -2,7 +2,7 @@ import React from 'react'
 
 function PageNotFound() {
   return (
-    <div>PageNotFound</div>
+    <div className='flex items-center justify-center'>PageNotFound</div>
   )
 }
 
