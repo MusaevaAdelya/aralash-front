@@ -10,7 +10,7 @@ function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="mt-10 ">
+    <header className="mt-10 mx-auto container max-w-[1335px] lg:px-0 px-5">
       <nav className=" flex  items-center justify-between " aria-label="Global">
         <div className="flex ">
           <NavLink to="/" >
