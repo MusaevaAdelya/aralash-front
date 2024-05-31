@@ -3,7 +3,7 @@ import React from "react";
 function SetOfProducts() {
   return (
     <section className=" relative">
-      <div className=" text-dark-200 lg:w-1/2 w-full ml-auto flex justify-center lg:justify-start text-center lg:text-start">
+      <div className=" text-dark-200 lg:w-1/2 w-full ml-auto flex justify-center lg:justify-start text-center lg:text-start lg:h-[467px]">
         <div className="max-w-[438px] space-y-6 mt-10 ml-10 ">
           <h2 className="font-bold lg:text-3xl text-2xl">
             Полностью интегрированный набор платежных продуктов
