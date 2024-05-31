@@ -1,12 +1,8 @@
 import { useState } from "react";
 import { Dialog, Popover } from "@headlessui/react";
-import {
-  Bars3Icon,
-  ChevronRightIcon,
-  XMarkIcon,
-} from "@heroicons/react/24/outline";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Button from "../common/Button";
 import Logo from "../common/Logo";
 
@@ -14,13 +10,10 @@ function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="mt-10">
-      <nav
-        className="mx-auto flex container items-center justify-between max-w-[1335px]"
-        aria-label="Global"
-      >
+    <header className="mt-10 ">
+      <nav className=" flex  items-center justify-between " aria-label="Global">
         <div className="flex ">
-          <NavLink to="/" className="">
+          <NavLink to="/" >
             <Logo />
           </NavLink>
         </div>
@@ -34,7 +27,7 @@ function Navbar() {
             <Bars3Icon className="w-6 h-6" aria-hidden="true" />
           </button>
         </div>
-        <Popover.Group className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-12  items-center">
+        <Popover.Group className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-12  items-center ">
           <NavLink to="/" className="font-bold leading-6 ">
             Главная
           </NavLink>

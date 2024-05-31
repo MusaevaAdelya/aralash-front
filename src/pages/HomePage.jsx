@@ -1,9 +1,13 @@
-import React from 'react'
+import HeroSection from "../components/specific/HeroSection";
+import SetOfProducts from "../components/specific/SetOfProducts";
 
 function HomePage() {
   return (
-    <div>HomePage</div>
-  )
+    <main>
+      <HeroSection />
+      <SetOfProducts />
+    </main>
+  );
 }
 
-export default HomePage
+export default HomePage;
