@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import LineChart from './LineChart';
 import Companies from './Companies';
+import Transactions from './Transactions';
 
 function ProfileTabs() {
     const [activeTab, setActiveTab] = useState(0);
@@ -30,7 +31,7 @@ function ProfileTabs() {
         <div className='p-10'>
           {activeTab === 0 && <LineChart/>}
           {activeTab === 1 && <Companies/>}
-          {activeTab === 2 && <div>Content of the third tab</div>}
+          {activeTab === 2 && <Transactions/>}
         </div>
       </div>
     );
