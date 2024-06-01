@@ -30,15 +30,16 @@
     npm start
 
 Структура проекта
-src/components/layout/AppLayout.js - Основной компонент макета приложения.
-src/pages/HomePage.js - Главная страница.
-src/pages/LoginPage.js - Страница входа.
-src/pages/RegisterPage.js - Страница регистрации.
-src/pages/ProfilePage.js - Страница профиля.
-src/pages/PageNotFound.js - Страница 404.
+- src/components/layout/AppLayout.js - Основной компонент макета приложения.
+- src/pages/HomePage.js - Главная страница.
+- src/pages/LoginPage.js - Страница входа.
+- src/pages/RegisterPage.js - Страница регистрации.
+- src/pages/ProfilePage.js - Страница профиля.
+- src/pages/PageNotFound.js - Страница 404.
+
 Маршруты
-/ - Главная страница.
-/login - Страница входа.
-/register - Страница регистрации.
-/profile - Страница профиля.
-* - Страница 404 (не найдена).
+- / - Главная страница.
+- /login - Страница входа.
+- /register - Страница регистрации.
+- /profile - Страница профиля.
+- * - Страница 404 (не найдена).
