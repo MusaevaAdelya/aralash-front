@@ -100,7 +100,7 @@ export const addbalance = async (data)=>{
     }
 
     try {
-        const response = await API.post('user/companies/',data,{
+        const response = await API.post('user/topup',data,{
             headers: {
                 Authorization: `Bearer ${token}`,
             },
