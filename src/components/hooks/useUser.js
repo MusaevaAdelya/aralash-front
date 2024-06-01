@@ -12,6 +12,7 @@ const useUser = () => {
 
         if (result.error) {
             setError(result.error);
+            console.log(result.error)
             setUser(null);
         } else {
             setUser(result);

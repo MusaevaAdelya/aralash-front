@@ -34,6 +34,7 @@ function ProfileTabs() {
           >
             Пополнение
           </div>
+
         </div>
         <div className='p-10'>
           {activeTab === 0 && <LineChart/>}
