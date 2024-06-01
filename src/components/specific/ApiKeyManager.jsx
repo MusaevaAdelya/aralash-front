@@ -1,17 +1,37 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from 'axios';
+import {mycomp} from "../../services/user/addCompany";
 
 const API_BASE_URL = 'http://127.0.0.1:8000/apiV1/'; // Замените на ваш базовый URL
 
 const ApiKeyManager = () => {
-    const [companyName, setCompanyName] = useState('');
+    const [companyName, setCompanyName] = useState([]);
     const [apiKey, setApiKey] = useState('');
     const [newApiKey, setNewApiKey] = useState('');
     const [message, setMessage] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
+    const [selectedCompanyName, setSelectedCompanyName] = useState('');
+
+    useEffect(() => {
+        const fetchCompanies = async () => {
+            try {
+                const companiesData = await mycomp();
+                if (companiesData.error) {
+                    setErrorMessage(companiesData.error);
+                } else {
+                    setCompanyName(companiesData);
+                }
+            } catch (error) {
+                setErrorMessage(error.message);
+            }
+        };
+
+        fetchCompanies();
+    }, []);
 
     const handleGenerateKey = async () => {
         try {
-            const response = await axios.post(`${API_BASE_URL}generate-key`, { company_name: companyName }, {
+            const response = await axios.post(`${API_BASE_URL}generate-key`, { company_name: selectedCompanyName }, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
                 },
@@ -70,16 +90,27 @@ const ApiKeyManager = () => {
             {message && <div className="mb-4 text-red-600">{message}</div>}
 
             <div className="mb-6">
-                <label htmlFor="companyName" className="block text-sm font-medium text-gray-700">
-                    Company Name
-                </label>
-                <input
-                    type="text"
-                    id="companyName"
-                    value={companyName}
-                    onChange={(e) => setCompanyName(e.target.value)}
-                    className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-                />
+
+                    <h2>List of Companies</h2>
+                    <label htmlFor="companyName" className="block text-sm font-medium text-gray-700">
+                        Company Name
+                    </label>
+                    <select
+                        id="companyName"
+                        value={selectedCompanyName}
+                        onChange={(e) => setSelectedCompanyName(e.target.value)}
+                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                    >
+                        <option value="">Select a company</option>
+                        {companyName.map((company) => (
+                            <option key={company.id} value={company.name}>
+                                <span>Name: {company.name} </span>
+                                <span>Registration Number: {company.registration_number} </span>
+                                <span>Address: {company.address} </span>
+                            </option>
+                        ))}
+                    </select>
+
                 <button
                     onClick={handleGenerateKey}
                     className="mt-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
