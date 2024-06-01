@@ -3,14 +3,12 @@ import { Dialog, Popover } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 import { NavLink } from "react-router-dom";
-import Button from "../common/Button";
 import Logo from "../common/Logo";
-import useUser from "../hooks/useUser";
 import UserStatus from "./UserStatus";
 
 function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { user, loading, error } = useUser();
+
 
 
   return (
@@ -41,12 +39,7 @@ function Navbar() {
           <NavLink to="/" className="font-bold leading-6 ">
             Контакты
           </NavLink>
-          <Button
-            isLink={true}
-            className="bg-secondary font-bold text-lg text-white py-3 px-10 rounded-lg"
-          >
-            Войти
-          </Button>
+          <UserStatus />
         </Popover.Group>
       </nav>
 

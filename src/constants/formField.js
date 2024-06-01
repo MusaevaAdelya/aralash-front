@@ -21,6 +21,59 @@ const loginFields=[
     }
 ]
 
+const companyFields = [
+    {
+        labelText: "Название компании",
+        labelFor: "name",
+        id: "name",
+        name: "name",
+        type: "text",
+        autoComplete: "company-name",
+        isRequired: true,
+        placeholder: "Название компании"
+    },
+    {
+        labelText: "Тип бизнеса",
+        labelFor: "business_type",
+        id: "business_type_id",
+        name: "business_type",
+        type: "select",
+        autoComplete: "business-type",
+        isRequired: true,
+        placeholder: "Тип бизнеса"
+    },
+    {
+        labelText: "Регистрационный номер",
+        labelFor: "registration_number",
+        id: "registration_number",
+        name: "registration_number",
+        type: "text",
+        autoComplete: "registration-number",
+        isRequired: true,
+        placeholder: "Регистрационный номер"
+    },
+    {
+        labelText: "Адрес",
+        labelFor: "address",
+        id: "address",
+        name: "address",
+        type: "text",
+        autoComplete: "address",
+        isRequired: true,
+        placeholder: "Адрес"
+    },
+    {
+        labelText: "Подписка",
+        labelFor: "subscription",
+        id: "subscription_id",
+        name: "subscription",
+        type: "select",
+        autoComplete: "subscription",
+        isRequired: false,
+        placeholder: "Подписка"
+    }
+]
+
 const signupFields=[
     {
         labelText:"Username",
@@ -64,4 +117,4 @@ const signupFields=[
     }
 ]
 
-export {loginFields,signupFields}
+export {loginFields,signupFields , companyFields}

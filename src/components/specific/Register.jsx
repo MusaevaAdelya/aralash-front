@@ -1,34 +1,47 @@
-import { useState } from 'react';
-import { signupFields } from "../../constants/formField"
+import {useState} from 'react';
+import {signupFields} from "../../constants/formField"
 import Input from "../common/Input";
 import FormAction from './FormAction';
+import {register} from "../../services/auth/register";
+import {useNavigate} from "react-router-dom";
 
-const fields=signupFields;
-let fieldsState={};
+const fields = signupFields;
+let fieldsState = {};
 
-fields.forEach(field => fieldsState[field.id]='');
+fields.forEach(field => fieldsState[field.id] = '');
 
-export default function Register(){
-  const [signupState,setSignupState]=useState(fieldsState);
+export default function Register() {
+    const [signupState, setSignupState] = useState(fieldsState);
+    const [errorMessage, setErrorMessage] = useState('');
+    const navigate = useNavigate();
+    const handleChange = (e) => setSignupState({...signupState, [e.target.id]: e.target.value});
 
-  const handleChange=(e)=>setSignupState({...signupState,[e.target.id]:e.target.value});
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(signupState)
+        createAccount()
+    }
 
-  const handleSubmit=(e)=>{
-    e.preventDefault();
-    console.log(signupState)
-    createAccount()
-  }
+    //handle Signup API Integration here
+    const createAccount = async () => {
+        console.log(signupState)
+        try {
+            const result = await register(signupState["username"],signupState["email-address"], signupState["password"]);
+            if (result.error) {
+                setErrorMessage(result.error);
+            } else {
+                navigate('/');
+            }
+        } catch (error) {
+            setErrorMessage("Произошла ошибка при попытке входа в систему. Пожалуйста, попробуйте снова.");
+        }
+    }
 
-  //handle Signup API Integration here
-  const createAccount=()=>{
-
-  }
-
-    return(
+    return (
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
-        <div className="">
-        {
-                fields.map(field=>
+            <div className="">
+                {
+                    fields.map(field =>
                         <Input
                             key={field.id}
                             handleChange={handleChange}
@@ -40,15 +53,13 @@ export default function Register(){
                             type={field.type}
                             isRequired={field.isRequired}
                             placeholder={field.placeholder}
-                    />
-                
-                )
-            }
-          <FormAction handleSubmit={handleSubmit} text="Signup" />
-        </div>
+                        />
+                    )
+                }
+                <FormAction handleSubmit={handleSubmit} text="Signup"/>
+            </div>
 
-         
 
-      </form>
+        </form>
     )
 }

@@ -9,6 +9,7 @@ const UserStatus = () => {
     useEffect(() => {
         if (user) {
             setIsAuthenticated(true);
+            console.log(user)
         } else {
             setIsAuthenticated(false);
         }
@@ -18,33 +19,36 @@ const UserStatus = () => {
         return <div>Loading...</div>;
     }
 
-    if (error || !isAuthenticated) {
-        return (
-            <Button
-                isLink={true}
-                className="bg-secondary font-bold text-lg text-white py-3 px-10 rounded-lg"
-            >
-                Войти
-            </Button>
-        );
-    }
-
     return (
-        <div className="flex items-center space-x-4">
-            <img
-                src={user.photo}
-                alt="User Photo"
-                className="w-10 h-10 rounded-full"
-            />
-            <div>
-                <p>{user.username}</p>
+        <div>
+            {!isAuthenticated ? (
                 <Button
                     isLink={true}
-                    className="bg-secondary font-bold text-lg text-white py-1 px-3 rounded-lg mt-2"
+                    className="bg-secondary font-bold text-lg text-white py-3 px-10 rounded-lg"
+                    to={'/login'}
                 >
-                    Profile
+                    Войти
                 </Button>
-            </div>
+            ) : (
+                <div className="flex items-center space-x-4">
+                    <img
+                        src={user.photo}
+                        alt="User Photo"
+                        className="w-10 h-10 rounded-full"
+                    />
+                    <div>
+                        <p className="font-semibold text-lg text-gray-800">{user.username}</p>
+
+                        <Button
+                            isLink={true}
+                            className="bg-secondary font-bold text-lg text-white py-1 px-3 rounded-lg mt-2"
+                            to={'/profile'}
+                        >
+                            Profile
+                        </Button>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

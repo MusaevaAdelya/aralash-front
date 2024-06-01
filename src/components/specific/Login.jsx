@@ -34,6 +34,10 @@ export default function Login(){
             if (result.error) {
                 setErrorMessage(result.error);
             } else {
+
+                console.log(result)
+                localStorage.setItem('accessToken', result.access);
+                localStorage.setItem('refreshToken', result.refresh);
                 navigate('/');
             }
         } catch (error) {
