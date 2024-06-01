@@ -1,8 +1,9 @@
-import {useState} from 'react'
+import React, {useState} from 'react'
 import LineChart from './LineChart';
 import Companies from './Companies';
 import Transactions from './Transactions';
 import Balance from './Balance';
+import ApiKeyManager from "./ApiKeyManager";
 
 function ProfileTabs() {
     const [activeTab, setActiveTab] = useState(0);
@@ -34,13 +35,19 @@ function ProfileTabs() {
           >
             Пополнение
           </div>
-
+            <div
+                className={`px-10 py-4 cursor-pointer ${activeTab === 3 ? 'border-b-2 border-primary' : ''}`}
+                onClick={() => setActiveTab(4)}
+            >
+                Получить ключ
+            </div>
         </div>
         <div className='p-10'>
           {activeTab === 0 && <LineChart/>}
           {activeTab === 1 && <Companies/>}
           {activeTab === 2 && <Transactions/>}
           {activeTab === 3 && <Balance/>}
+          {activeTab === 4 && <ApiKeyManager/>}
         </div>
       </div>
     );
