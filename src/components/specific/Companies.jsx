@@ -1,4 +1,5 @@
 import React from "react";
+import Dropdown from "./Dropdown";
 
 const companies = [
   {
@@ -58,9 +59,7 @@ function Companies() {
             </div>
           </div>
           <div className=" shrink-0 sm:flex sm:flex-col sm:items-end">
-            <p className="text-base leading-6 text-gray-900">
-              {company.subscription}
-            </p>
+            <Dropdown/>
             <p className="mt-1 text-sm leading-5 text-gray-500">
               {company.requests_made_this_month} запросов
             </p>
