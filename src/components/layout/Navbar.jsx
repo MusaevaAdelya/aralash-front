@@ -5,9 +5,13 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { NavLink } from "react-router-dom";
 import Button from "../common/Button";
 import Logo from "../common/Logo";
+import useUser from "../hooks/useUser";
+import UserStatus from "./UserStatus";
 
 function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { user, loading, error } = useUser();
+
 
   return (
     <header className="mt-10 mx-auto container max-w-[1335px] lg:px-0 px-5">
@@ -98,12 +102,7 @@ function Navbar() {
               </div>
               <div className="py-6 space-y-4 ">
                 <div className="flex items-center">
-                  <Button
-                    isLink={true}
-                    className="bg-secondary font-bold text-lg text-white py-3 px-10 rounded-lg w-full text-center"
-                  >
-                    Войти
-                  </Button>
+                  <UserStatus />
                 </div>
               </div>
             </div>
